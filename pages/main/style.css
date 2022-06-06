@@ -136,7 +136,7 @@ p {
   color: #cdcdcd;
 }
 
-.nav-menu li+li {
+.nav-menu li + li {
   margin-left: 35px;
 }
 
@@ -157,23 +157,28 @@ p {
   border-bottom: 1px solid #f1cdb3;
 }
 
-
 /* not only */
 
 .start-screen {
-  background-image: radial-gradient(at 0% 0%,
-        rgba(91, 72, 58, 1),
-        rgba(38, 36, 37, 1) 70%,
-        rgba(33, 31, 32, 1) 80%);
+  background-image: radial-gradient(
+    at 0% 20%,
+    rgba(91, 72, 58, 1) 10%,
+    rgba(38, 36, 37, 1) 70%,
+    rgba(33, 31, 32, 1) 100%
+  );
+  z-index: -2;
 }
 
-.grain  {
+.grain {
   background: url(../../assets/images/noise_transparent@2x.png) repeat;
-  opacity: 0.7;
+  opacity: 0.99;
+  z-index: -1;
 }
 
 .not-only {
   height: 728px;
+  z-index: 1;
+  opacity: 1;
 }
 
 .not-only-row {
@@ -290,7 +295,6 @@ p {
   padding: 80px 0 100px 0;
 }
 
-
 /* pets */
 
 .pets {
@@ -401,7 +405,6 @@ p {
   background: #fddcc4;
   cursor: pointer;
 }
-
 
 /* help */
 
@@ -530,10 +533,12 @@ p {
 
 .footer {
   max-height: 350px;
-  background-image: radial-gradient(at 0% 0%,
-      rgba(81, 61, 47, 0.999) 0%,
-      rgba(26, 26, 28, 0.999) 70%,
-      rgba(33, 31, 32, 0.999) 90%);
+  background-image: radial-gradient(
+    at 0% 35%,
+    rgba(81, 61, 47, 0.999) 25%,
+    rgba(26, 26, 28, 0.999) 90%,
+    rgba(33, 31, 32, 0.999) 100%
+  );
 }
 
 .footer .h3-heading {
