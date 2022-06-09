@@ -245,7 +245,7 @@ p {
 /* about */
 
 .about {
-  min-height: 588px;
+  height: 588px;
 }
 
 .about-row {
@@ -254,17 +254,18 @@ p {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  gap: 120px;
 }
 
 .about-content {
-  padding: 94px 0 114px 0;
   max-width: 430px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-items: center;
   gap: 25px;
-  padding-left: 120px;
 }
 
 .h3-heading {
@@ -291,9 +292,6 @@ p {
   color: #4c4c4c;
 }
 
-.about-pets-img {
-  padding: 80px 0 100px 0;
-}
 
 /* pets */
 
@@ -532,7 +530,7 @@ p {
 /* footer */
 
 .footer {
-  max-height: 350px;
+  height: 350px;
   background-image: radial-gradient(
     at 0% 35%,
     rgba(81, 61, 47, 0.999) 25%,
@@ -558,18 +556,25 @@ p {
   justify-content: center;
   margin: 0 auto;
   padding-top: 40px;
-  gap: 145px;
+  gap: 158px;
 }
 
 .footer-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 25px;
   max-height: 234px;
   padding-top: 16px;
   padding-bottom: 60px;
   max-width: 300px;
+}
+
+.footer-column1 {
+  gap: 35px;
+}
+
+.footer-column2 {
+  gap: 32px;
 }
 
 .footer .icon {
@@ -588,10 +593,8 @@ p {
 .footer .svg {
   padding-right: 20px;
   padding-left: 0;
+  padding-top: 0px;
   min-width: 22px;
 }
 
-.donation .h4-heading {
-  display: inline-block;
-  vertical-align: text-bottom;
-}
+
