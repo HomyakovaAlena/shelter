@@ -31,14 +31,19 @@
                             </a>
                             <div class="subtitle">Shelter for pets in Boston</div>
                         </div>
+                        <input id="menu__toggle" type="checkbox" />
+                        <label class="menu__btn" for="menu__toggle">
+                            <span></span>
+                        </label>
                         <nav class="nav-menu">
-                            <ul>
-                                <li class="active"><a href="#">About the shelter</a></li>
-                                <li class="ordinary-link"><a href="../pets/index.html">Our pets</a></li>
-                                <li class="ordinary-link"><a href="#help">Help the shelter</a></li>
-                                <li class="ordinary-link"><a href="#footer">Contacts</a></li>
+                            <ul class="menu__box" id="menu__box">
+                                <li class="active menu__item"><a href="#">About the shelter</a></li>
+                                <li class="ordinary-link menu__item"><a href="../pets/index.html">Our pets</a></li>
+                                <li class="ordinary-link menu__item"><a href="#help">Help the shelter</a></li>
+                                <li class="ordinary-link menu__item"><a href="#footer">Contacts</a></li>
                             </ul>
                         </nav>
+                        
                     </div>
                 </div>
             </header>
@@ -57,7 +62,7 @@
                             </div>
                         </div>
                         <div class="not-only-puppy">
-                            <img src="../../assets/images/start-screen-puppy698.png" alt="Nice puppy picture" />
+                            <img class="not-only-puppy" src="../../assets/images/start-screen-puppy698.png" alt="Nice puppy picture" />
                         </div>
                     </div>
                 </div>
@@ -69,10 +74,10 @@
             <div class="container">
                 <div class="about-row">
                     <div class="about-pets-img">
-                        <img src="../../assets/images/about-pets.png" alt="Nice pets picture" />
+                        <img class="about-pets-img" src="../../assets/images/about-pets.png" alt="Nice pets picture" />
                     </div>
                     <div class="about-content">
-                        <h3 class="h3-heading">About the shelter “Cozy House”</h3>
+                        <h3 class="h3-heading">About the shelter<br>“Cozy House”</h3>
                         <div class="about-paragraphs">
                             <p>Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of
                                 them will find a family. The
@@ -104,7 +109,7 @@
                         </svg>
                     </button>
                     <div class="slider-box">
-                        <div class="card-link">
+                        <div class="card-link card1">
                             <a class="learn-more-button" href="#">
                                 <figure class="card">
                                     <img class="pets-img" src="../../assets/images/pets-katrine.png"
@@ -114,7 +119,7 @@
                                 </figure>
                             </a>
                         </div>
-                        <div class="card-link">
+                        <div class="card-link card2">
                             <a class="learn-more-button" href="#">
                                 <figure class="card">
                                     <img class="pets-img" src="../../assets/images/pets-jennifer.png"
@@ -124,7 +129,7 @@
                                 </figure>
                             </a>
                         </div>
-                        <div class="card-link">
+                        <div class="card-link card3">
                             <a class="learn-more-button" href="#">
                                 <figure class="card">
                                     <img class="pets-img" src="../../assets/images/pets-woody.png"
@@ -149,7 +154,7 @@
         <section class="help" id="help">
             <div class="container">
                 <div class="h3-heading h3-heading-help">
-                    <h3 class="help-heading">How you can help our shelter</h3>
+                    <h3 class="help-heading">How you can help<br>our shelter</h3>
                 </div>
                 <div class="help-row">
                     <figure class="icon icon-pet-food">
@@ -321,7 +326,7 @@
             <div class="container-narrow">
                 <div class="donation-row">
                     <div class="donation-dog">
-                        <img src="../../assets/images/donation-dog.png" alt="Nice dog picture" />
+                        <img class="donation-dog" src="../../assets/images/donation-dog.png" alt="Nice dog picture" />
                     </div>
                     <div class="donation-content">
                         <h3 class="h3-heading h3-heading-donation">You can also <br>make a donation</h3>
@@ -427,7 +432,7 @@
                         </a>
                     </div>
                     <div class="footer-puppy">
-                        <img src="../../assets/images/footer-puppy.png" alt="Nice puppy picture" />
+                        <img class="footer-puppy" src="../../assets/images/footer-puppy.png" alt="Nice puppy picture" />
                     </div>
                 </div>
             </div>
