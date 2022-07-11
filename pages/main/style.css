@@ -8,7 +8,18 @@ body {
 
 .none {
   display: none !important;
+  -ms-overflow-style: none;
 }
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
 
 .visually-hidden {
   position: absolute;
@@ -26,6 +37,7 @@ body {
 
 .container {
   max-width: 1200px;
+  scrollbar-width: none;
   margin: 0 auto;
   padding-left: 0px;
   padding-right: 0px;
@@ -33,6 +45,7 @@ body {
 
 .container-narrow {
   max-width: 1026px;
+  scrollbar-width: none;
   margin: 0 auto;
   padding-left: 0px;
   padding-right: 0px;
@@ -116,6 +129,10 @@ p {
   color: #ffffff;
   padding-top: 10px;
 }
+
+/* .nav-menu {
+  z-index: 100500;
+} */
 
 .nav-menu ul {
   width: 443px;
@@ -731,7 +748,7 @@ p {
     text-align: center;
   }
 
-
+}
 
 
   @media all and (max-width: 767px) {
@@ -1024,7 +1041,7 @@ p {
     position: fixed;
     visibility: hidden;
     top: 0;
-    right: 0px; 
+    left: calc(100vw - 320px);
     width: 320px;
     margin: 0;
     padding: 248px 0 248px;
@@ -1035,7 +1052,10 @@ p {
     align-items: center;
     background-color: #292929;
     transform: translateX(-100%) 2s;
+    overflow-y: scroll;
+    /* z-index: 100; */
   }
+
 
   .menu__box .menu__item {
     display: block;
@@ -1049,6 +1069,7 @@ p {
 
   .menu__box .menu__item > * {
     font-size: 32px;
+    color: #CDCDCD;
   }
 
   #menu__toggle:checked ~ .menu__btn > span {
@@ -1070,5 +1091,6 @@ p {
   #menu__toggle:checked  ~.nav-menu #menu__box {
     visibility: visible;
     transform: translateX(-100%) 2s;
+    position: fixed;
   }
 }
