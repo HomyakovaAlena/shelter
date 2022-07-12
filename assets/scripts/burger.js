@@ -35,7 +35,6 @@ function openBurger(event) {
 
 function closeBurger(event) {
     console.log(event);
-    // event.stopImmediatePropagation();
     menuTgl.checked = false;
     menuBox.classList.remove('burger-open');
     navOuter.classList.remove('burger-outer');

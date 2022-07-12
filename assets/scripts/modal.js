@@ -1,8 +1,7 @@
-// import pets from './aggregate.js';
-import { create } from './aggregate.js';
+import { create } from "./aggregate.js";
 
-const main = document.querySelector('main');
-const container = document.querySelector('container');
+const main = document.querySelector("main");
+const container = document.querySelector("container");
 
 function addModalShowMore() {
   const fragment = document.createDocumentFragment();
@@ -12,31 +11,27 @@ function addModalShowMore() {
 }
 
 function showMoreModal(pets) {
-    const buttonsShowMore = document.querySelectorAll(".btnShowMore");
-    const cards = document.querySelectorAll(".crd");
-    const modalOuter = document.querySelector(".modal-outer");
-    const modalInner = document.querySelector(".modal-inner");
-    buttonsShowMore.forEach((button) =>
-        button.addEventListener("click", handleCardButtonClick)
-    );
-    cards.forEach(
-        (button) => button.addEventListener("click", handleCardButtonClick)
-    );
+  const buttonsShowMore = document.querySelectorAll(".btnShowMore");
+  const cards = document.querySelectorAll(".crd");
+  const modalOuter = document.querySelector(".modal-outer");
+  const modalInner = document.querySelector(".modal-inner");
+  buttonsShowMore.forEach((button) =>
+    button.addEventListener("click", handleCardButtonClick)
+  );
+  cards.forEach((button) =>
+    button.addEventListener("click", handleCardButtonClick)
+  );
 
-    function handleCardButtonClick(event) {
-        const button = event.currentTarget;
-        const card = button.closest(".crd");
-        const imgSrc = card.querySelector("img").src;
-        const petName = card.querySelector(".h4-heading").textContent;
-        // const headingAuthor = card.querySelector(".headingAuthor").textContent;
-        // const headingPrice = card.querySelector(".headingPrice").textContent;
-      
-        event.stopImmediatePropagation();
-        const pet = pets.filter((item) => item.name === petName);
-        // card.dataset.description = pet[0].description;
-        // const desc = card.dataset.description;
-    
-        modalInner.innerHTML = `
+  function handleCardButtonClick(event) {
+    const button = event.currentTarget;
+    const card = button.closest(".crd");
+    const imgSrc = card.querySelector("img").src;
+    const petName = card.querySelector(".h4-heading").textContent;
+
+    event.stopImmediatePropagation();
+    const pet = pets.filter((item) => item.name === petName);
+
+    modalInner.innerHTML = `
   <button type="button" id="closeBtn" class="btn closeBtn">x</button>
   <div class='modalRow'>
     <div class='modalCol1'>
@@ -54,37 +49,35 @@ function showMoreModal(pets) {
         </ul>
     </div>
   </div>`;
-        modalOuter.classList.add("open");
-        const body = document.querySelector("body");
-        body.style.overflow = "hidden";
+    modalOuter.classList.add("open");
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
 
-  
-        function closeModal() {
-            modalOuter.classList.remove("open");
-            const body = document.querySelector("body");
-            body.style.overflow = "auto";
-        }
-
-        const closeBtn = modalInner.querySelector(".closeBtn");
-        closeBtn.addEventListener("click", function () {
-            closeModal();
-        });
-
-        modalOuter.addEventListener("click", function (event) {
-            const isOutside = !event.target.closest(".modal-inner");
-            if (isOutside) {
-                closeModal();
-            }
-
-            window.addEventListener("keydown", (event) => {
-                console.log(event);
-                if (event.key === "Escape") {
-                    closeModal();
-                }
-            });
-        });
+    function closeModal() {
+      modalOuter.classList.remove("open");
+      const body = document.querySelector("body");
+      body.style.overflow = "auto";
     }
-}
 
+    const closeBtn = modalInner.querySelector(".closeBtn");
+    closeBtn.addEventListener("click", function () {
+      closeModal();
+    });
+
+    modalOuter.addEventListener("click", function (event) {
+      const isOutside = !event.target.closest(".modal-inner");
+      if (isOutside) {
+        closeModal();
+      }
+
+      window.addEventListener("keydown", (event) => {
+        console.log(event);
+        if (event.key === "Escape") {
+          closeModal();
+        }
+      });
+    });
+  }
+}
 
 export { addModalShowMore, showMoreModal };
