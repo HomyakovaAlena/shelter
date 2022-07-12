@@ -627,6 +627,97 @@ p {
   visibility: hidden;
 }
 
+.modal-outer {
+  display: grid;
+  position: absolute;
+  background: rgba(41, 41, 41, 0.6);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100000000;
+}
+
+.modal-inner {
+  width: 900px;
+  height: 500px;
+  /* padding: 2rem; */
+  border-radius: 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  overflow: auto;
+}
+
+.modal-inner ul {
+  padding-left: 10px;
+}
+
+.modal-inner li {
+  list-style: url('../../assets/icons/dot.png');
+  padding-left: 5px;
+  margin: 0;
+}
+
+.modal-inner .h4-heading {
+  justify-content: left;
+  text-align: left;
+}
+
+.modal-inner .description {
+  margin: 40px 0 25px;
+}
+
+.modal-outer.open {
+  opacity: 1;
+  pointer-events: all;
+  /* overflow: hidden; */
+}
+
+.modalRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.modalCol2 {
+  padding: 50px 20px 0 0;
+}
+
+.closeBtn {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  right: calc((100vw - 900px) / 2 - 45px);
+  top: calc((60px));
+  background-color: rgb(236, 236, 236);
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+  font-size: 20px;
+}
+
+.closeBtn:hover {
+  cursor: pointer;
+  background-color: #F1CDB3;
+}
+
+.modal-outer:hover {
+  cursor: pointer;
+}
+
+.modal-inner:hover {
+  cursor: auto;
+}
+
+.imgPetModal {
+  margin-right: 29px;
+  width: 500px;
+  height: 500px;
+}
 
 @media all and (max-width: 1279px) {
   .header {
@@ -748,6 +839,29 @@ p {
     text-align: center;
   }
 
+  .modal-inner {
+    width: 630px;
+    height: 350px;
+  }
+
+  .modalCol2 {
+    padding: 10px 9px 0 0;
+  }
+
+  .modal-inner .description {
+    margin: 15px 0 5px;
+  }
+
+  .closeBtn {
+    right: calc((100vw - 630px) / 2 - 50px);
+    top: calc((52px));
+  }
+
+  .imgPetModal {
+    margin-right: 11px;
+    width: 350px;
+    height: 350px;
+  }
 }
 
 
@@ -1163,4 +1277,33 @@ p {
     /* transform: translateX(100%) 1s; */
     /* transition: height 0ms 0ms, opacity .5s 0ms; */
   }
+
+    .modal-inner {
+      width: 240px;
+      height: 341px;
+    }
+  
+    .modal-inner .h3-heading {
+      margin: 0;
+  
+    }
+  
+    .modalCol2 {
+      padding: 10px;
+    }
+  
+    .modal-inner .description {
+      margin: 15px 0 5px;
+    }
+  
+    .closeBtn {
+      right: calc((100vw - 240px) / 2 - 35px);
+      top: calc((62px));
+    }
+  
+    .imgPetModal {
+      margin-right: 0px;
+      width: 0px;
+      height: 0px;
+    }
 }
