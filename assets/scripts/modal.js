@@ -28,7 +28,7 @@ function showMoreModal(pets) {
     const imgSrc = card.querySelector("img").src;
     const petName = card.querySelector(".h4-heading").textContent;
 
-    event.stopImmediatePropagation();
+    event.preventDefault();
     const pet = pets.filter((item) => item.name === petName);
 
     modalInner.innerHTML = `

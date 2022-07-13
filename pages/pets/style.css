@@ -10,12 +10,6 @@ body::-webkit-scrollbar {
   scrollbar-width: none;
 }
 
-html {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow-y: scroll;
-}
-
 /* hide invisible objects */
 
 .none {
@@ -502,6 +496,7 @@ button:disabled {
 .modal-outer.open {
   opacity: 1;
   pointer-events: all;
+  transition: 0.5s;
   /* overflow: hidden; */
 }
 

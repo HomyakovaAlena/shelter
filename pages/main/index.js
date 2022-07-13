@@ -2,10 +2,9 @@ import {
   toggleBurger,
   openBurger,
   closeBurger,
-} from "../../assets/scripts/aggregate.js";
-import {
   addModalShowMore,
   showMoreModal,
+  Slider
 } from "../../assets/scripts/aggregate.js";
 
 fetch("../../assets/json/data.json")
