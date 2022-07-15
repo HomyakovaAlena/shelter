@@ -5,7 +5,7 @@ import {
   addModalShowMore,
   showMoreModal,
   Slider,
-  Pagination
+  Pagination,
 } from "../../assets/scripts/aggregate.js";
 
 fetch("../../assets/json/data.json")
@@ -15,20 +15,18 @@ fetch("../../assets/json/data.json")
   .then((data) => {
     localStorage.setItem("pets", JSON.stringify(data));
     console.info("Saving pets to localstorage");
+
+    const pets = JSON.parse(localStorage.getItem("pets"));
+    console.log(pets);
+
+    if (Object.keys(pets).length) {
+      init(pets);
+    }
   });
 
-const pets = JSON.parse(localStorage.getItem("pets"));
-console.log(pets);
-
 function init(pets) {
-  const petSlider = Slider(document.querySelector('.slider'));
+  const petSlider = Slider(document.querySelector(".slider"));
   const petPagination = Pagination(document.querySelector(".pages"));
   addModalShowMore();
   showMoreModal(pets);
 }
-
-if (Object.keys(pets).length) {
-    init(pets);
-}
-
-export { pets };

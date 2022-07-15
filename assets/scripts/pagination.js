@@ -33,7 +33,6 @@ function Pagination(pagination) {
     while (nums.size < limit) {
       nums.add(Math.floor(Math.random() * (limit - 1 + 1)));
     }
-    console.log([...nums]);
     return [...nums];
   };
 
@@ -45,7 +44,6 @@ function Pagination(pagination) {
   function generateHTML(array) {
     const fragment = document.createDocumentFragment();
     let count = 0;
-    console.log({ pets });
     pets.forEach((pet) => {
       pet.count = count;
       pet.random = array[count];
@@ -83,7 +81,6 @@ function Pagination(pagination) {
     } else {
       numPages = countPets / tabletView;
     }
-    console.log(numPages);
     return numPages;
   }
 
@@ -101,16 +98,12 @@ function Pagination(pagination) {
     } else {
       view = tabletView;
     }
-    console.log({ view });
     return view;
   }
 
   view = defineView();
-  console.log({ view });
 
   function startPagination() {
-    console.log({ children });
-
     first = Array.from(children).slice(0, view);
     last = Array.from(children).slice(-view, countPets);
 
@@ -122,9 +115,6 @@ function Pagination(pagination) {
 
     const firstCurrentIndex = Array.from(children).indexOf(current[0]);
     const lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
-
-    console.log({ current });
-    console.log({ firstCurrentIndex });
 
     if (lastCurrentIndex !== countPets - 1) {
       next = Array.from(children).slice(
@@ -144,7 +134,6 @@ function Pagination(pagination) {
       prev = last;
     }
     correctPagination();
-    console.log({ current, prev, next, first, last });
   }
 
   startPagination();
@@ -162,16 +151,13 @@ function Pagination(pagination) {
   function correctPagination() {
     const lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
     const currentPage = Math.round(lastCurrentIndex / view);
-    console.log({ currentPage }, { lastCurrentIndex });
     const page = document.querySelector(".arrow-page");
     page.textContent = currentPage;
     if (currentPage === 1) {
-      console.log("curpage = 1", { currentPage }, { lastCurrentIndex });
       [firstButton, prevButton].forEach((button) =>
         button.classList.add("disabled")
       );
     } else if (currentPage === numPages) {
-      console.log("curpage = last", { currentPage }, { lastCurrentIndex });
       [lastButton, nextButton].forEach((button) =>
         button.classList.add("disabled")
       );
@@ -182,8 +168,8 @@ function Pagination(pagination) {
     let firstCurrentIndex = Array.from(children).indexOf(current[0]);
     let lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
 
-      const classesToRemove = ["prev", "current", "next", "disabled"];
-      current.forEach((item) => item.classList.add("visually-hidden"));
+    const classesToRemove = ["prev", "current", "next", "disabled"];
+    current.forEach((item) => item.classList.add("visually-hidden"));
 
     prev.forEach((el) => el.classList.remove(...classesToRemove));
     current.forEach((el) => el.classList.remove(...classesToRemove));
@@ -194,20 +180,26 @@ function Pagination(pagination) {
     );
 
     if (direction === "first") {
-        [current, prev] = [first, last];
-        lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
+      [current, prev] = [first, last];
+      lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
       next = Array.from(children).slice(
         lastCurrentIndex + 1,
         lastCurrentIndex + view + 1
-      );        
+      );
     } else if (direction === "last") {
       [current, next] = [last, first];
-        firstCurrentIndex = Array.from(children).indexOf(current[0]);
-        prev = Array.from(children).slice(firstCurrentIndex - view, firstCurrentIndex);
+      firstCurrentIndex = Array.from(children).indexOf(current[0]);
+      prev = Array.from(children).slice(
+        firstCurrentIndex - view,
+        firstCurrentIndex
+      );
     } else if (direction === "back") {
       [current, next] = [prev, current];
-        firstCurrentIndex = Array.from(children).indexOf(current[0]);
-        prev = Array.from(children).slice(firstCurrentIndex - view, firstCurrentIndex);
+      firstCurrentIndex = Array.from(children).indexOf(current[0]);
+      prev = Array.from(children).slice(
+        firstCurrentIndex - view,
+        firstCurrentIndex
+      );
     } else {
       [current, prev] = [next, current];
       lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
@@ -216,8 +208,7 @@ function Pagination(pagination) {
         lastCurrentIndex + view + 1
       );
     }
-    console.log("after");
-    console.log({ current, prev, next, first, last });
+
     applyClasses();
     correctPagination();
   }
@@ -229,7 +220,5 @@ function Pagination(pagination) {
   firstButton.addEventListener("click", () => move("first"));
   lastButton.addEventListener("click", () => move("last"));
 }
-
-
 
 export { Pagination };

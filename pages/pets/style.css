@@ -10,12 +10,6 @@ body::-webkit-scrollbar {
   scrollbar-width: none;
 }
 
-/* hide invisible objects */
-
-.none {
-  display: none !important;
-}
-
 .visually-hidden {
   position: absolute;
   visibility: hidden;
@@ -26,20 +20,7 @@ body::-webkit-scrollbar {
   background: transparent;
   font-size: 0;
   opacity: 0;
-  /* transition: 1s; */
-  /* animation: ani 2.5s forwards; */
 }
-
-/* @keyframes ani {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-} */
-/* grid */
 
 .container {
   max-width: 1200px;
@@ -58,8 +39,6 @@ body::-webkit-scrollbar {
   padding-left: 0px;
   padding-right: 0px;
 }
-
-/* common styles for all pages */
 
 ul {
   list-style: none;
@@ -289,11 +268,6 @@ p {
   border-radius: 100px;
 }
 
-/* .card-link {
-  padding: 0;
-  margin: 0;
-} */
-
 .card:hover .button-light {
   background-color: #fddcc4;
   cursor: pointer;
@@ -468,7 +442,6 @@ button.disabled {
 .modal-inner {
   width: 900px;
   height: 500px;
-  /* padding: 2rem; */
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
@@ -498,7 +471,6 @@ button.disabled {
   opacity: 1;
   pointer-events: all;
   transition: 0.5s;
-  /* overflow: hidden; */
 }
 
 .modalRow {
@@ -565,15 +537,6 @@ button.disabled {
     margin-right: 2.6vw;
     flex: 1 1 50vw;
   }
-
-  /* .card7,
-  .card8 {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-    flex: 0 1 50%;
-  } */
-
 
   .pagination {
     margin: 10px auto 76px;
@@ -643,7 +606,6 @@ button.disabled {
   .header-row {
     padding-left: 10px;
     margin-right: 30px;
-    /* margin-top: 30px; */
     justify-content: flex-end;
   }
 
@@ -692,14 +654,6 @@ button.disabled {
     margin-right: 2.6vw;
     flex: 0 1 100%;
   }
-
-  /* .card4,
-  .card5,
-  .card6 {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  } */
 
   .pagination {
     margin: 12px auto 42px;
@@ -780,7 +734,6 @@ button.disabled {
     width: 320px;
     height: 120vh;
     margin: 0;
-    /* padding: 248px 0 248px; */
     gap: 40px;
     list-style: none;
     text-align: center;
@@ -792,7 +745,6 @@ button.disabled {
     background-color: #292929;
     transition: all 0.2s ease-in-out;
     z-index: 100;
-    /* transform: translateX(-100%) 5s; */
   }
 
   .menu__box .menu__item {
@@ -801,7 +753,6 @@ button.disabled {
     text-align: center;
     margin: 0;
     padding: 0;
-    /* transform: translateX(-100%) 2s; */
   }
 
   .menu__box .menu__item > * {
@@ -832,11 +783,8 @@ button.disabled {
   .burger-open {
     visibility: visible;
     left: calc(100vw - 320px);
-    /* transform: translateX(-100%) 5s; */
-    /* transition: all 0.2s ease-in-out; */
     cursor: pointer;
     overflow-y: auto;
-
   }
 
   .burger-outer {
@@ -849,13 +797,12 @@ button.disabled {
     top: 0;
     left: 0;
     overflow: hidden;
-    /* transform: translateX(100%) 0.5s; */
     transition: all 0.5s ease-in-out;
   }
 
   .logo2 {
     z-index: 1000;
-    transition: opacity .5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .title2 {
@@ -866,9 +813,8 @@ button.disabled {
     letter-spacing: 0.06em;
     color: #f1cdb3;
     margin-right: calc(320px - 200px - 83px);
-    /* margin-left: 10px; */
-    /* transition: opacity .2s 0ms; */
   }
+
   .subtitle2 {
     margin-left: 4px;
     font-size: 13px;
@@ -876,8 +822,6 @@ button.disabled {
     letter-spacing: 0.1em;
     color: #ffffff;
     padding-top: 10px;
-    /* transform: translateX(100%) 1s; */
-    /* transition: height 0ms 0ms, opacity .5s 0ms; */
   }
 
   .modal-inner {

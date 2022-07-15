@@ -6,17 +6,15 @@ function addModalShowMore() {
   const fragment = document.createDocumentFragment();
   const modalOuter = create("div", "modal-outer", fragment, "");
   const modalInner = create("div", "modal-inner", modalOuter, "");
-  console.log('yohoho');
   main.append(fragment);
 }
-
 
 function showMoreModal(pets) {
   const buttonsShowMore = document.querySelectorAll(".btnShowMore");
   const cards = document.querySelectorAll(".crd");
   const modalOuter = document.querySelector(".modal-outer");
   const modalInner = document.querySelector(".modal-inner");
-  
+
   function handleCardButtonClick(event) {
     const button = event.currentTarget;
     const card = button.closest(".crd");
@@ -75,12 +73,11 @@ function showMoreModal(pets) {
   }
 
   buttonsShowMore.forEach((button) =>
-      button.addEventListener("click", handleCardButtonClick)
-    );
-    cards.forEach((button) =>
-      button.addEventListener("click", handleCardButtonClick)
-    );
-
+    button.addEventListener("click", handleCardButtonClick)
+  );
+  cards.forEach((button) =>
+    button.addEventListener("click", handleCardButtonClick)
+  );
 }
 
 export { addModalShowMore, showMoreModal };
