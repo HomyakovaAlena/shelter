@@ -2,13 +2,15 @@ import { create } from "./aggregate.js";
 
 function Slider(slider) {
     if (!(slider instanceof Element)) {
-        throw new Error('No slider passed in');
+        // throw new Error('No slider passed in');
+        return false
     }
     let current;
     let prev;
     let next;
 
     const pets = JSON.parse(localStorage.getItem("pets"));
+    
     const slides = slider.querySelector('.slider-box');
     const prevButton = document.querySelector('.arrow-left');
     const nextButton = document.querySelector('.arrow-right')
@@ -26,10 +28,14 @@ function Slider(slider) {
         const fragment = document.createDocumentFragment();
         let count = 0
         pets.forEach((pet) => {            
-            pet.id = array[count]
-            count++
+            pet.id = array[count];
+            pet.count = count;
+            
             const newCard = create("div", "crd", fragment, "");
-            newCard.classList.add(`card${pet.id}`, 'visually-hidden')
+            newCard.classList.add(`card${pet.id}`, 'visually-hidden');
+            newCard.id = count;
+
+            count++;
             newCard.innerHTML = `
                 <a class="learn-more-button" href="#">
                     <figure class="card">
@@ -61,8 +67,19 @@ function Slider(slider) {
     }
 
     function move(direction) {
-        const classesToRemove = ['prev', 'current', 'next', ];
+        const classesToRemove = ['prev', 'current', 'next',];
+        // console.log(prev.id);
         [prev, current, next].forEach(el => el.classList.remove(...classesToRemove));
+        // const cards = Array.from(slides.children);
+        // console.log({ cards });
+        // let new_prev = cards.filter((el) => {
+        //     console.log(el.id);
+        //     console.log(prev.id);
+        //     parseInt(el.id) === parseInt(prev.id) - 3;
+        //     console.log(el.id === parseInt(prev.id));
+        // });
+        // console.log(new_prev);
+        // [prev_index, current_index, next_index].forEach(el => el.classList.remove(...classesToRemove));
 
         if (direction === "back") {
             [prev, current, next] = [prev.previousElementSibling || slides.lastElementChild,
@@ -85,7 +102,7 @@ function Slider(slider) {
     prevButton.addEventListener('click', move);
 
 }
-const petSlider = Slider(document.querySelector('.slider'));
+
 
 
 export { Slider };

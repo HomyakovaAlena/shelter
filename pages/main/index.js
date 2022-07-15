@@ -4,7 +4,8 @@ import {
   closeBurger,
   addModalShowMore,
   showMoreModal,
-  Slider
+  Slider,
+  Pagination
 } from "../../assets/scripts/aggregate.js";
 
 fetch("../../assets/json/data.json")
@@ -19,7 +20,15 @@ fetch("../../assets/json/data.json")
 const pets = JSON.parse(localStorage.getItem("pets"));
 console.log(pets);
 
-addModalShowMore();
-showMoreModal(pets);
+function init(pets) {
+  const petSlider = Slider(document.querySelector('.slider'));
+  const petPagination = Pagination(document.querySelector(".pages"));
+  addModalShowMore();
+  showMoreModal(pets);
+}
+
+if (Object.keys(pets).length) {
+    init(pets);
+}
 
 export { pets };

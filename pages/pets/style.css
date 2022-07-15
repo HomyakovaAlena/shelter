@@ -26,7 +26,7 @@ body::-webkit-scrollbar {
   background: transparent;
   font-size: 0;
   opacity: 0;
-  transition: 1s;
+  /* transition: 1s; */
   /* animation: ani 2.5s forwards; */
 }
 
@@ -289,10 +289,10 @@ p {
   border-radius: 100px;
 }
 
-.card-link {
+/* .card-link {
   padding: 0;
   margin: 0;
-}
+} */
 
 .card:hover .button-light {
   background-color: #fddcc4;
@@ -335,9 +335,10 @@ p {
   background: #f1cdb3;
 }
 
-button:disabled {
+button.disabled {
   border: 2px solid #cdcdcd;
   color: #cdcdcd;
+  pointer-events: none;
 }
 
 .ordinary:hover {
@@ -513,8 +514,8 @@ button:disabled {
   position: absolute;
   width: 52px;
   height: 52px;
-  right: calc((100vw - 900px) / 2 - 45px);
-  top: calc((60px));
+  right: calc((100vw - 900px) / 2 - 40px);
+  top: 65px;
   background-color: rgb(236, 236, 236);
   border: 2px solid #f1cdb3;
   border-radius: 100px;
@@ -565,13 +566,15 @@ button:disabled {
     flex: 1 1 50vw;
   }
 
-  .card7,
+  /* .card7,
   .card8 {
     visibility: hidden;
     width: 0;
     height: 0;
     flex: 0 1 50%;
-  }
+  } */
+
+
   .pagination {
     margin: 10px auto 76px;
   }
@@ -690,13 +693,13 @@ button:disabled {
     flex: 0 1 100%;
   }
 
-  .card4,
+  /* .card4,
   .card5,
   .card6 {
     visibility: hidden;
     width: 0;
     height: 0;
-  }
+  } */
 
   .pagination {
     margin: 12px auto 42px;
@@ -749,7 +752,7 @@ button:disabled {
     background-color: #000000;
     transition: 0.3s;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1000000;
   }
   .menu__btn > span {
     top: 60px;
@@ -798,7 +801,7 @@ button:disabled {
     text-align: center;
     margin: 0;
     padding: 0;
-    transform: translateX(-100%) 2s;
+    /* transform: translateX(-100%) 2s; */
   }
 
   .menu__box .menu__item > * {
@@ -830,9 +833,10 @@ button:disabled {
     visibility: visible;
     left: calc(100vw - 320px);
     /* transform: translateX(-100%) 5s; */
-    transition: all 0.2s ease-in-out;
+    /* transition: all 0.2s ease-in-out; */
     cursor: pointer;
     overflow-y: auto;
+
   }
 
   .burger-outer {
@@ -846,13 +850,12 @@ button:disabled {
     left: 0;
     overflow: hidden;
     /* transform: translateX(100%) 0.5s; */
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
   .logo2 {
-    z-index: 1000000;
-    /* transform: translateX(100%) 1s; */
-    /* transition: opacity .5s 2s; */
+    z-index: 1000;
+    transition: opacity .5s ease-in-out;
   }
 
   .title2 {
