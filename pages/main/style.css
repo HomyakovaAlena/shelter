@@ -327,30 +327,27 @@ p {
 /* slider */
 
 .crd {
-  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
 .crd.prev {
   z-index: 1000;
-  grid-column: 1;
-  grid-row: 1;
-  visibility: visible !important;
+  transform: translateX(-200%);
+  opacity: 0;
 }
 
 .crd.current {
   z-index: 1000;
-  grid-column: 2;
   grid-row: 1;
-  visibility: visible !important;
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .crd.next {
   z-index: 1000;
-  grid-column: 3;
-  grid-row: 1;
-  visibility: visible !important;
-  animation: right 2s;
-  animation-direction: reverse;
+  transform: translateX(200%);
+  opacity: 0;
 }
 
 .pets .h3-heading {
@@ -655,7 +652,6 @@ p {
   height: 500px;
   border-radius: 10px;
   background: #ffffff;
-  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   overflow: auto;
 }
 
@@ -681,12 +677,13 @@ p {
 .modal-outer.open {
   opacity: 1;
   pointer-events: all;
-  transition: 0.5s;
+  transition: all 0.5s;
 }
 
 .modal-outer.open .modal-inner {
   opacity: 1;
-  transition: 4.5s;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  transition: all 0.5s;
 }
 
 .modalRow {
@@ -786,23 +783,6 @@ p {
     display: grid;
     grid-template-columns: 270px 270px;
     column-gap: 5.2083vw;
-  }
-
-  .crd.prev {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .crd.current {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .crd.next {
-    grid-column: 3;
-    grid-row: 1;
-    width: 0;
-    visibility: hidden;
   }
 
   .help-row {
@@ -992,25 +972,6 @@ p {
     grid-column: 1 / span 2;
     grid-template-columns: 270px;
     grid-template-rows: 435px;
-  }
-
-  .crd.prev {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .crd.current {
-    grid-column: 2;
-    grid-row: 1;
-    width: 0;
-    visibility: hidden;
-  }
-
-  .crd.next {
-    grid-column: 3;
-    grid-row: 1;
-    width: 0;
-    visibility: hidden;
   }
 
   .card {

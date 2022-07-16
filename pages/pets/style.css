@@ -444,7 +444,6 @@ button.disabled {
   height: 500px;
   border-radius: 10px;
   background: #ffffff;
-  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   overflow: auto;
 }
 
@@ -470,7 +469,13 @@ button.disabled {
 .modal-outer.open {
   opacity: 1;
   pointer-events: all;
-  transition: 0.5s;
+  transition: all 0.5s;
+}
+
+.modal-outer.open .modal-inner {
+  opacity: 1;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  transition: all 0.5s;
 }
 
 .modalRow {

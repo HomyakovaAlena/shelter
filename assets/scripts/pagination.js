@@ -211,6 +211,10 @@ function Pagination(pagination) {
 
     applyClasses();
     correctPagination();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   applyClasses();

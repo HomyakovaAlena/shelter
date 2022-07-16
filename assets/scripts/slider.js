@@ -4,13 +4,22 @@ function Slider(slider) {
   if (!(slider instanceof Element)) {
     return false;
   }
-  let current;
-  let prev;
-  let next;
 
   const pets = JSON.parse(localStorage.getItem("pets"));
 
+  let current = [];
+  let prev = [];
+  let next = [];
+
+  let view;
+  const mobileView = 1;
+  const tabletView = 2;
+  const desktopView = 3;
+  const countPets = Object.keys(pets).length;
+
   const slides = slider.querySelector(".slider-box");
+  const children = slides.children;
+  let childrenArray = Array.from(children);
   const prevButton = document.querySelector(".arrow-left");
   const nextButton = document.querySelector(".arrow-right");
 
@@ -22,76 +31,149 @@ function Slider(slider) {
     return [...nums];
   };
 
+  function defineView() {
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    const desktop = window.matchMedia("(min-width: 1280px)").matches;
+    const tablet = !mobile && !desktop;
+
+    if (mobile) {
+      view = mobileView;
+    } else if (desktop) {
+      view = desktopView;
+    } else {
+      view = tabletView;
+    }
+    return view;
+  }
+
+  view = defineView();
 
   function generateHTML(array) {
     const fragment = document.createDocumentFragment();
     let count = 0;
     pets.forEach((pet) => {
-      pet.id = array[count];
       pet.count = count;
+      pet.random = array[count];
 
       const newCard = create("div", "crd", fragment, "");
-      newCard.classList.add(`card${pet.id}`, "visually-hidden");
-      newCard.id = count;
+      newCard.classList.add(`card${pet.random}`);
+      newCard.id = size;
 
       count++;
+      size++;
       newCard.innerHTML = `
-                <a class="learn-more-button" href="#">
-                    <figure class="card">
-                        <img class="pets-img" src="${pets[pet.id].img}"
-                            alt="Pet ${pets[pet.id].name} image" />
-                        <h4 class="h4-heading">${pets[pet.id].name}</h4>
-                        <div class="button button-light">Learn more</div>
-                    </figure>
-                </a>
-            `;
+              <a class="learn-more-button" href="#">
+                  <figure class="card">
+                      <img class="pets-img" src="${pets[pet.random].img}"
+                          alt="Pet ${pets[pet.random].name} image" />
+                      <h4 class="h4-heading">${pets[pet.random].name}</h4>
+                      <div class="button button-light">Learn more</div>
+                  </figure>
+              </a>
+          `;
     });
     slides.append(fragment);
   }
 
-  generateHTML(randomUnique(8));
+  let countGenerate = Math.ceil((view * 3) / countPets);
+  let size = 0;
+
+  for (let i = 0; i < countGenerate; i++) {
+    generateHTML(randomUnique(8));
+  }
 
   function startSlider() {
-    current = slider.querySelector(".current") || slides.firstElementChild;
-    prev = current.previousElementSibling || slides.lastElementChild;
-    next = current.nextElementSibling || slides.firstElementChild;
+    const pets = JSON.parse(localStorage.getItem("pets"));
+    const countPets = Object.keys(pets).length;
+    let childrenArray = Array.from(children);
+    console.log(countPets);
+
+    if (Array.from(slides.querySelectorAll(".current")).length) {
+      current = Array.from(slides.querySelectorAll(".current"));
+    } else {
+      current = childrenArray.slice(0, view);
+    }
+
+    const firstCurrentIndex = childrenArray.indexOf(current[0]);
+    const lastCurrentIndex = childrenArray.indexOf(current[view - 1]);
+
+    let indexNext = lastCurrentIndex + 1;
+    for (let i = 0; i < view; i++) {
+      if (indexNext >= childrenArray.length) {
+        indexNext = 0;
+      }
+      next.push(childrenArray[indexNext]);
+      indexNext++;
+    }
+
+    let indexPrev = firstCurrentIndex - 1;
+    for (let i = 0; i < view; i++) {
+      if (indexPrev < 0) {
+        indexPrev = countPets * countGenerate + indexPrev;
+      }
+      prev.unshift(childrenArray[indexPrev]);
+      indexPrev--;
+    }
+
+    console.log({ current, prev, next });
   }
 
   function applyClasses() {
-    current.classList.add("current");
-    prev.classList.add("prev");
-    next.classList.add("next");
-    [prev, current, next].forEach((el) =>
-      el.classList.remove("visually-hidden")
-    );
+    current.forEach((item) => item.classList.add("current"));
+    prev.forEach((item) => item.classList.add("prev"));
+    next.forEach((item) => item.classList.add("next"));
   }
 
-  function move(direction) {
-    const classesToRemove = ["prev", "current", "next"];
-    [prev, current, next].forEach((el) =>
-      el.classList.remove(...classesToRemove)
-    );
-
-    if (direction === "back") {
-      [prev, current, next] = [
-        prev.previousElementSibling || slides.lastElementChild,
-        prev,
-        current,
-      ];
-    } else {
-      [prev, current, next] = [
-        current,
-        next,
-        next.nextElementSibling || slides.firstElementChild,
-      ];
-    }
-    applyClasses();
-  }
   startSlider();
   applyClasses();
 
-  nextButton.addEventListener("click", () => move("back"));
-  prevButton.addEventListener("click", move);
+  function move(direction) {
+    let childrenArray = Array.from(children);
+    const classesToRemove = ["prev", "current", "next"];
+
+    prev.forEach((el) => el.classList.remove(...classesToRemove));
+    current.forEach((el) => el.classList.remove(...classesToRemove));
+    next.forEach((el) => el.classList.remove(...classesToRemove));
+
+    current = [];
+
+    if (direction === "back") {
+      current = prev;
+    } else {
+      current = next;
+    }
+    console.log({ current });
+
+    prev = [];
+    next = [];
+
+    let firstCurrentIndex = Array.from(children).indexOf(current[0]);
+    let lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
+
+    let indexPrev = firstCurrentIndex - 1;
+    for (let i = 0; i < view; i++) {
+      if (indexPrev < 0) {
+        indexPrev = countPets * countGenerate + indexPrev;
+      }
+      prev.unshift(childrenArray[indexPrev]);
+      indexPrev--;
+    }
+
+    lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
+    let indexNext = lastCurrentIndex + 1;
+    for (let i = 0; i < view; i++) {
+      if (indexNext >= childrenArray.length) {
+        indexNext = 0;
+      }
+      next.push(childrenArray[indexNext]);
+      indexNext++;
+    }
+    applyClasses();
+    console.log({ current, prev, next });
+  }
+
+  prevButton.addEventListener("click", () => move("back"));
+  nextButton.addEventListener("click", move);
 }
 
 export { Slider };
