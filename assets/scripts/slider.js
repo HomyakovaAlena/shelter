@@ -75,18 +75,14 @@ function Slider(slider) {
     slides.append(fragment);
   }
 
-  let countGenerate = Math.ceil((view * 3) / countPets);
   let size = 0;
 
-  for (let i = 0; i < countGenerate; i++) {
-    generateHTML(randomUnique(8));
-  }
+  generateHTML(randomUnique(8));
 
   function startSlider() {
     const pets = JSON.parse(localStorage.getItem("pets"));
     const countPets = Object.keys(pets).length;
     let childrenArray = Array.from(children);
-    console.log(countPets);
 
     if (Array.from(slides.querySelectorAll(".current")).length) {
       current = Array.from(slides.querySelectorAll(".current"));
@@ -109,13 +105,11 @@ function Slider(slider) {
     let indexPrev = firstCurrentIndex - 1;
     for (let i = 0; i < view; i++) {
       if (indexPrev < 0) {
-        indexPrev = countPets * countGenerate + indexPrev;
+        indexPrev = countPets + indexPrev;
       }
       prev.unshift(childrenArray[indexPrev]);
       indexPrev--;
     }
-
-    console.log({ current, prev, next });
   }
 
   function applyClasses() {
@@ -129,7 +123,7 @@ function Slider(slider) {
 
   function move(direction) {
     let childrenArray = Array.from(children);
-    const classesToRemove = ["prev", "current", "next"];
+    const classesToRemove = ["prev", "current", "next", "right", "left"];
 
     prev.forEach((el) => el.classList.remove(...classesToRemove));
     current.forEach((el) => el.classList.remove(...classesToRemove));
@@ -139,39 +133,38 @@ function Slider(slider) {
 
     if (direction === "back") {
       current = prev;
+      current.forEach((item) => item.classList.add("current", "right"));
     } else {
       current = next;
-    }
-    console.log({ current });
-
-    prev = [];
-    next = [];
-
-    let firstCurrentIndex = Array.from(children).indexOf(current[0]);
-    let lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
-
-    let indexPrev = firstCurrentIndex - 1;
-    for (let i = 0; i < view; i++) {
-      if (indexPrev < 0) {
-        indexPrev = countPets * countGenerate + indexPrev;
-      }
-      prev.unshift(childrenArray[indexPrev]);
-      indexPrev--;
+      current.forEach((item) => item.classList.add("current", "left"));
     }
 
-    lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
-    let indexNext = lastCurrentIndex + 1;
-    for (let i = 0; i < view; i++) {
-      if (indexNext >= childrenArray.length) {
-        indexNext = 0;
-      }
-      next.push(childrenArray[indexNext]);
-      indexNext++;
-    }
-    applyClasses();
-    console.log({ current, prev, next });
+    current.forEach((item) =>
+      item.addEventListener("animationend", function () {
+        prev = [];
+        next = [];
+        let firstCurrentIndex = Array.from(children).indexOf(current[0]);
+        let lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
+        let indexPrev = firstCurrentIndex - 1;
+        for (let i = 0; i < view; i++) {
+          if (indexPrev < 0) {
+            indexPrev = countPets + indexPrev;
+          }
+          prev.unshift(childrenArray[indexPrev]);
+          indexPrev--;
+        }
+        lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
+        let indexNext = lastCurrentIndex + 1;
+        for (let i = 0; i < view; i++) {
+          if (indexNext >= childrenArray.length) {
+            indexNext = 0;
+          }
+          next.push(childrenArray[indexNext]);
+          indexNext++;
+        }
+        applyClasses();
+      }));
   }
-
   prevButton.addEventListener("click", () => move("back"));
   nextButton.addEventListener("click", move);
 }

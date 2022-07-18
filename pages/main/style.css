@@ -328,27 +328,54 @@ p {
 
 .crd {
   opacity: 0;
-  transition: all 0.5s ease;
 }
 
 .crd.prev {
   z-index: 1000;
-  transform: translateX(-200%);
   opacity: 0;
 }
 
 .crd.current {
   z-index: 1000;
   grid-row: 1;
-  transform: translateX(0);
   opacity: 1;
+}
+
+.crd.current.right {
+  animation-name: right;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+.crd.current.left {
+  animation-name: left;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 .crd.next {
   z-index: 1000;
-  transform: translateX(200%);
   opacity: 0;
 }
+
+@keyframes left {
+  from {
+      transform: translateX(100%) rotate(-15deg);
+    }
+    to {
+      transform: translateX(0%) rotate(0deg);
+    }
+  }
+
+@keyframes right {
+  from {
+      transform: translateX(-100%) rotate(15deg);
+    }
+    to {
+      transform: translateX(0%) rotate(0deg);
+    }
+  }
+
 
 .pets .h3-heading {
   align-items: center;
