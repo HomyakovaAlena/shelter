@@ -31,14 +31,26 @@
                             </a>
                             <div class="subtitle">Shelter for pets in Boston</div>
                         </div>
+                        <div class="logo2 visually-hidden">
+                            <a href="../main/index.html#header">
+                                <h1 class="title2">Cozy House</h1>
+                            </a>
+                            <div class="subtitle2 visually-hidden">Shelter for pets in Boston</div>
+                        </div>
+                        <input class="menu__toggle" id="menu__toggle" type="checkbox" />
+                        <label class="menu__btn" for="menu__toggle">
+                            <span></span>
+                        </label>
+                        <div class="nav_outer"></div>
                         <nav class="nav-menu">
-                            <ul>
-                                <li class="active"><a href="#">About the shelter</a></li>
-                                <li class="ordinary-link"><a href="../pets/index.html">Our pets</a></li>
-                                <li class="ordinary-link"><a href="#help">Help the shelter</a></li>
-                                <li class="ordinary-link"><a href="#footer">Contacts</a></li>
+                            <ul class="menu__box" id="menu__box">
+                                <li class="active menu__item"><a href="#">About the shelter</a></li>
+                                <li class="ordinary-link menu__item"><a href="../pets/index.html">Our pets</a></li>
+                                <li class="ordinary-link menu__item"><a href="#help">Help the shelter</a></li>
+                                <li class="ordinary-link menu__item"><a href="#footer">Contacts</a></li>
                             </ul>
                         </nav>
+                        
                     </div>
                 </div>
             </header>
@@ -57,7 +69,7 @@
                             </div>
                         </div>
                         <div class="not-only-puppy">
-                            <img src="../../assets/images/start-screen-puppy698.png" alt="Nice puppy picture" />
+                            <img class="not-only-puppy" src="../../assets/images/start-screen-puppy698.png" alt="Nice puppy picture" />
                         </div>
                     </div>
                 </div>
@@ -69,10 +81,10 @@
             <div class="container">
                 <div class="about-row">
                     <div class="about-pets-img">
-                        <img src="../../assets/images/about-pets.png" alt="Nice pets picture" />
+                        <img class="about-pets-img" src="../../assets/images/about-pets.png" alt="Nice pets picture" />
                     </div>
                     <div class="about-content">
-                        <h3 class="h3-heading">About the shelter “Cozy House”</h3>
+                        <h3 class="h3-heading">About the shelter<br>“Cozy House”</h3>
                         <div class="about-paragraphs">
                             <p>Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of
                                 them will find a family. The
@@ -103,38 +115,7 @@
                             <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
                         </svg>
                     </button>
-                    <div class="slider-box">
-                        <div class="card-link">
-                            <a class="learn-more-button" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-katrine.png"
-                                        alt="Pet Katrine image" />
-                                    <h4 class="h4-heading">Katrine</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="learn-more-button" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-jennifer.png"
-                                        alt="Pet Jennifer image" />
-                                    <h4 class="h4-heading">Jennifer</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="learn-more-button" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-woody.png"
-                                        alt="Pet Woody image" />
-                                    <h4 class="h4-heading">Woody</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                    </div>
+                    <div class="slider-box"></div>
                     <button class="pets-button-arrow arrow-right">
                         <svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 4V2L11 2V0L14 3L11 6V4L0 4Z" fill="#292929" />
@@ -149,7 +130,7 @@
         <section class="help" id="help">
             <div class="container">
                 <div class="h3-heading h3-heading-help">
-                    <h3 class="help-heading">How you can help our shelter</h3>
+                    <h3 class="help-heading">How you can help<br>our shelter</h3>
                 </div>
                 <div class="help-row">
                     <figure class="icon icon-pet-food">
@@ -321,7 +302,7 @@
             <div class="container-narrow">
                 <div class="donation-row">
                     <div class="donation-dog">
-                        <img src="../../assets/images/donation-dog.png" alt="Nice dog picture" />
+                        <img class="donation-dog" src="../../assets/images/donation-dog.png" alt="Nice dog picture" />
                     </div>
                     <div class="donation-content">
                         <h3 class="h3-heading h3-heading-donation">You can also <br>make a donation</h3>
@@ -427,12 +408,14 @@
                         </a>
                     </div>
                     <div class="footer-puppy">
-                        <img src="../../assets/images/footer-puppy.png" alt="Nice puppy picture" />
+                        <img class="footer-puppy" src="../../assets/images/footer-puppy.png" alt="Nice puppy picture" />
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+        <script type="module" src="index.js"></script>
 </body>
 
 </html>

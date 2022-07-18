@@ -29,14 +29,25 @@
                     </a>
                     <div class="subtitle">Shelter for pets in Boston</div>
                 </div>
+                <div class="logo2 visually-hidden">
+                    <a href="../main/index.html#header">
+                        <h1 class="title2">Cozy House</h1>
+                    </a>
+                    <div class="subtitle2 visually-hidden">Shelter for pets in Boston</div>
+                </div>
+                <input class="menu__toggle" id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+                <div class="nav_outer"></div>
                 <nav class="nav-menu">
-                    <ul>
-                        <li class="ordinary-link"><a href="../main/index.html">About the shelter</a></li>
-                        <li class="active"><a href="../pets/index.html">Our pets</a></li>
-                        <li class="ordinary-link"><a href="../main/index.html#help">Help the shelter</a></li>
-                        <li class="ordinary-link"><a href="#footer">Contacts</a></li>
+                    <ul class="menu__box" id="menu__box">
+                        <li class="ordinary-link  menu__item"><a href="../main/index.html">About the shelter</a></li>
+                        <li class="active  menu__item"><a href="../pets/index.html">Our pets</a></li>
+                        <li class="ordinary-link  menu__item"><a href="../main/index.html#help">Help the shelter</a></li>
+                        <li class="ordinary-link  menu__item"><a href="#footer">Contacts</a></li>
                     </ul>
-                </nav>
+                </nav>    
             </div>
         </div>
     </header>
@@ -46,91 +57,15 @@
                 <div class="h3-heading h3-heading-pets">
                     <h3 class="pets-heading">Our friends who <br>are looking for a house</h3>
                 </div>
-                <div class="slider">
-                    <div class="slider-box">
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-katrine.png"
-                                        alt="Pet Katrine image" />
-                                    <h4 class="h4-heading">Katrine</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-jennifer.png"
-                                        alt="Pet Jennifer image" />
-                                    <h4 class="h4-heading">Jennifer</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-woody.png"
-                                        alt="Pet Woody image" />
-                                    <h4 class="h4-heading">Woody</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-sophia.png" alt="Pet Sophia image" />
-                                    <h4 class="h4-heading">Sophia</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-timmy.png" alt="Pet Timmy image" />
-                                    <h4 class="h4-heading">Timmy</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-charly.png" alt="Pet Charly image" />
-                                    <h4 class="h4-heading">Charly</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-scarlet.png" alt="Pet Scarlett image" />
-                                    <h4 class="h4-heading">Scarlett</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="card-link">
-                            <a class="card-link" href="#">
-                                <figure class="card">
-                                    <img class="pets-img" src="../../assets/images/pets-freddie.png" alt="Pet Freddie image" />
-                                    <h4 class="h4-heading">Freddie</h4>
-                                    <div class="button button-light">Learn more</div>
-                                </figure>
-                            </a>
-                        </div>
+                    <div class="pages">
+                        <div class="slider-box"></div>
+                    <div class="pagination">
+                        <button class="pets-button-arrow arrow-left2 ordinary disabled">&lt;&lt;</button>
+                        <button class="pets-button-arrow arrow-left1 ordinary disabled">&lt;</button>
+                        <button class="pets-button-arrow arrow-page">1</button>
+                        <button class="pets-button-arrow arrow-right1 ordinary">&gt;</button>
+                        <button class="pets-button-arrow arrow-right2 ordinary">&gt;&gt;</button>    
                     </div>
-                </div>
-                <div class="pagination">
-                    <button disabled class="pets-button-arrow arrow-left2 disabled">&lt;&lt;</button>
-                    <button disabled class="pets-button-arrow arrow-left1 disabled">&lt;</button>
-                    <button class="pets-button-arrow arrow-page">1</button>
-                    <button class="pets-button-arrow arrow-right1 ordinary">&gt;</button>
-                    <button class="pets-button-arrow arrow-right2 ordinary">&gt;&gt;</button>    
                 </div>
             </div>
         </section>
@@ -212,12 +147,13 @@
                         </a>
                     </div>
                     <div class="footer-puppy">
-                        <img src="../../assets/images/footer-puppy.png" alt="Nice puppy picture" />
+                        <img class="footer-puppy" src="../../assets/images/footer-puppy.png" alt="Nice puppy picture" />
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <script type="module" src="../main/index.js"></script>
 </body>
 
 </html>
