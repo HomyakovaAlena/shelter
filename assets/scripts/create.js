@@ -1,9 +1,4 @@
-function create(
-  element,
-  newClass,
-  parentElement,
-  content = ""
-) {
+function createElement(element, newClass, parentElement, content = "") {
   const newElement = document.createElement(element);
   newElement.classList.add(newClass);
   if (content != "") {
@@ -13,4 +8,4 @@ function create(
   return newElement;
 }
 
-export { create };
+export { createElement };

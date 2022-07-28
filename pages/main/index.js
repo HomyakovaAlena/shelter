@@ -1,11 +1,8 @@
 import {
-  toggleBurger,
-  openBurger,
-  closeBurger,
   addModalShowMore,
   showMoreModal,
-  Slider,
-  Pagination,
+  makeSlider,
+  makePagination,
 } from "../../assets/scripts/aggregate.js";
 
 fetch("../../assets/json/data.json")
@@ -14,19 +11,15 @@ fetch("../../assets/json/data.json")
   })
   .then((data) => {
     localStorage.setItem("pets", JSON.stringify(data));
-    console.info("Saving pets to localstorage");
-
     const pets = JSON.parse(localStorage.getItem("pets"));
-    console.log(pets);
-
     if (Object.keys(pets).length) {
       init(pets);
     }
   });
 
 function init(pets) {
-  const petSlider = Slider(document.querySelector(".slider"));
-  const petPagination = Pagination(document.querySelector(".pages"));
+  const petSlider = makeSlider(document.querySelector(".slider"));
+  const petPagination = makePagination(document.querySelector(".pages"));
   addModalShowMore();
   showMoreModal(pets);
 }

@@ -1,5 +1,5 @@
 export { toggleBurger, openBurger, closeBurger } from "./burger.js";
 export { addModalShowMore, showMoreModal } from "./modal.js";
-export { create } from "./create.js";
-export { Slider } from "./slider.js";
-export { Pagination } from "./pagination.js";
+export { createElement } from "./create.js";
+export { makeSlider } from "./slider.js";
+export { makePagination } from "./pagination.js";

@@ -1,6 +1,6 @@
-import { create } from "./aggregate.js";
+import { createElement } from "./aggregate.js";
 
-function Slider(slider) {
+function makeSlider(slider) {
   if (!(slider instanceof Element)) {
     return false;
   }
@@ -19,7 +19,6 @@ function Slider(slider) {
 
   const slides = slider.querySelector(".slider-box");
   const children = slides.children;
-  let childrenArray = Array.from(children);
   const prevButton = document.querySelector(".arrow-left");
   const nextButton = document.querySelector(".arrow-right");
 
@@ -34,7 +33,6 @@ function Slider(slider) {
   function defineView() {
     const mobile = window.matchMedia("(max-width: 767px)").matches;
     const desktop = window.matchMedia("(min-width: 1280px)").matches;
-    const tablet = !mobile && !desktop;
 
     if (mobile) {
       view = mobileView;
@@ -55,7 +53,7 @@ function Slider(slider) {
       pet.count = count;
       pet.random = array[count];
 
-      const newCard = create("div", "crd", fragment, "");
+      const newCard = createElement("div", "crd", fragment, "");
       newCard.classList.add(`card${pet.random}`);
       newCard.id = size;
 
@@ -143,8 +141,8 @@ function Slider(slider) {
       item.addEventListener("animationend", function () {
         prev = [];
         next = [];
-        let firstCurrentIndex = Array.from(children).indexOf(current[0]);
-        let lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
+        let firstCurrentIndex = childrenArray.indexOf(current[0]);
+        let lastCurrentIndex = childrenArray.indexOf(current[view - 1]);
         let indexPrev = firstCurrentIndex - 1;
         for (let i = 0; i < view; i++) {
           if (indexPrev < 0) {
@@ -153,7 +151,7 @@ function Slider(slider) {
           prev.unshift(childrenArray[indexPrev]);
           indexPrev--;
         }
-        lastCurrentIndex = Array.from(children).indexOf(current[view - 1]);
+        lastCurrentIndex = childrenArray.indexOf(current[view - 1]);
         let indexNext = lastCurrentIndex + 1;
         for (let i = 0; i < view; i++) {
           if (indexNext >= childrenArray.length) {
@@ -163,10 +161,11 @@ function Slider(slider) {
           indexNext++;
         }
         applyClasses();
-      }));
+      })
+    );
   }
   prevButton.addEventListener("click", () => move("back"));
   nextButton.addEventListener("click", move);
 }
 
-export { Slider };
+export { makeSlider };

@@ -1,6 +1,6 @@
-import { create } from "./aggregate.js";
+import { createElement } from "./aggregate.js";
 
-function Pagination(pagination) {
+function makePagination(pagination) {
   if (!(pagination instanceof Element)) {
     return false;
   }
@@ -48,7 +48,7 @@ function Pagination(pagination) {
       pet.count = count;
       pet.random = array[count];
 
-      const newCard = create("div", "crd", fragment, "");
+      const newCard = createElement("div", "crd", fragment, "");
       newCard.classList.add(`card${pet.random}`, "visually-hidden");
       newCard.id = size;
 
@@ -72,36 +72,21 @@ function Pagination(pagination) {
   function countPages() {
     const mobile = window.matchMedia("(max-width: 767px)").matches;
     const desktop = window.matchMedia("(min-width: 1280px)").matches;
-    const tablet = !mobile && !desktop;
 
     if (mobile) {
       numPages = countPets / mobileView;
-    } else if (desktop) {
-      numPages = countPets / desktopView;
-    } else {
-      numPages = countPets / tabletView;
-    }
-    return numPages;
-  }
-
-  numPages = countPages();
-
-  function defineView() {
-    const mobile = window.matchMedia("(max-width: 767px)").matches;
-    const desktop = window.matchMedia("(min-width: 1280px)").matches;
-    const tablet = !mobile && !desktop;
-
-    if (mobile) {
       view = mobileView;
     } else if (desktop) {
+      numPages = countPets / desktopView;
       view = desktopView;
     } else {
+      numPages = countPets / tabletView;
       view = tabletView;
     }
-    return view;
+    return [numPages, view];
   }
 
-  view = defineView();
+  [numPages, view] = countPages();
 
   function startPagination() {
     first = Array.from(children).slice(0, view);
@@ -225,4 +210,4 @@ function Pagination(pagination) {
   lastButton.addEventListener("click", () => move("last"));
 }
 
-export { Pagination };
+export { makePagination };

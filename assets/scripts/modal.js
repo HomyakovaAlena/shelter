@@ -1,11 +1,11 @@
-import { create } from "./aggregate.js";
+import { createElement } from "./aggregate.js";
 
 const main = document.querySelector("main");
 
 function addModalShowMore() {
   const fragment = document.createDocumentFragment();
-  const modalOuter = create("div", "modal-outer", fragment, "");
-  const modalInner = create("div", "modal-inner", modalOuter, "");
+  const modalOuter = createElement("div", "modal-outer", fragment, "");
+  const modalInner = createElement("div", "modal-inner", modalOuter, "");
   main.append(fragment);
 }
 
@@ -44,12 +44,14 @@ function showMoreModal(pets) {
   </div>`;
     modalOuter.classList.add("open");
     const body = document.querySelector("body");
-    body.style.overflow = "hidden";
+    body.classList.add("overflow_hidden");
+    body.classList.remove("overflow_auto");
 
     function closeModal() {
       modalOuter.classList.remove("open");
       const body = document.querySelector("body");
-      body.style.overflow = "auto";
+      body.classList.remove("overflow_hidden");
+      body.classList.add("overflow_auto");
     }
 
     const closeBtn = modalInner.querySelector(".closeBtn");
@@ -64,7 +66,6 @@ function showMoreModal(pets) {
       }
 
       window.addEventListener("keydown", (event) => {
-        console.log(event);
         if (event.key === "Escape") {
           closeModal();
         }
