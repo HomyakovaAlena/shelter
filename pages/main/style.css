@@ -1303,7 +1303,7 @@ p {
   }
 
   .modal-inner {
-    width: 240px;
+    width: 75vw;
     min-height: 341px;
   }
 
@@ -1320,7 +1320,7 @@ p {
   }
 
   .closeBtn {
-    right: calc((100vw - 240px) / 2 - 35px);
+    right: calc(25vw / 2 - 35px);
     top: calc((62px));
   }
 

@@ -464,7 +464,7 @@ button.disabled {
 
 .modal-inner {
   width: 900px;
-  height: 500px;
+  min-height: 500px;
   border-radius: 10px;
   background: #ffffff;
   overflow: auto;
@@ -846,7 +846,7 @@ button.disabled {
   }
 
   .modal-inner {
-    width: 240px;
+    width: 75vw;
     min-height: 341px;
   }
 
@@ -863,7 +863,7 @@ button.disabled {
   }
 
   .closeBtn {
-    right: calc((100vw - 240px) / 2 - 35px);
+    right: calc(25vw / 2 - 35px);
     top: calc((62px));
   }
 
